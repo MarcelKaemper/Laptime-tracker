@@ -17,5 +17,9 @@ class DBConnector {
     public function close() {
         $this->conn->close();
     }
+
+    public function getConnection() {
+        return $this->conn;
+    }
 }
 ?>
