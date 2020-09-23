@@ -1,6 +1,12 @@
 .container {
     border: 1px solid black;
     width: 100%;
+    padding: 20px;
+}
+
+.container form input {
+    display: block;
+    margin: 5px;
 }
 
 .container-wrapper {
