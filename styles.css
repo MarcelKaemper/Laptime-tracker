@@ -4,6 +4,28 @@
     padding: 20px;
 }
 
+.container:first-of-type {
+    border-right: 0;
+}
+
+.container:last-of-type {
+    border-left: 0;
+}
+
+body {
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+#addLaptimeForm {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+    margin: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .container form input {
     display: block;
     margin: 5px;
@@ -13,3 +35,17 @@
     display: flex;
     width: 100%;
 }
+
+select {
+    width: 200px;
+}
+
+
+/* table.dataTable {
+    padding-top: 50px;
+} */
+
+
+/* div.dtsp-panesContainer {
+    margin-top: 150px;
+} */

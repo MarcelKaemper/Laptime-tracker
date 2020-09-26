@@ -1,18 +1,28 @@
-$(document).ready(() => {
-    if ($("#finalGameSelector").val() == "-1") {
-        $("#finalTrackSelector").hide();
-    }
-    if ($("#finalTrackSelector").val() == "-1") {
-        $("#finalCarSelector").hide();
-    }
+$(document).ready(function() {
 
-    $("#finalGameSelector").change(function() {
-        $("<form action='index.php' method='post'><input type='hidden' name='selectedGame' value='" + $(this).val() + "'></form>")
-            .appendTo('body').submit();
-    })
+    $("#dataTable").DataTable({
+        select: true,
+        colReorder: true,
+        searchPanes: {
+            cascadePanes: true,
+            columns: [0, 1, 2, 4]
+        },
+        dom: 'rtlpP'
+    });
 
-    $("#finalTrackSelector").change(function() {
-        $("<form action='index.php' method='post'><input type='hidden' name='selectedGame' value='" + $("#finalGameSelector").val() + "'><input type='hidden' name='selectedTrack' value='" + $(this).val() + "'></form>")
-            .appendTo('body').submit();
+    $("#addLaptimeForm").submit(function(event) {
+        event.preventDefault();
+        let game = $("#selectGame").val();
+        let car = $("#selectCar").val();
+        let track = $("#selectTrack").val();
+        let time = $("#inputTime").val();
+
+        $(`<form action="addData.php" method="POST">
+            <input type="hidden" name="add-type" value="laptime">
+            <input type="hidden" name="track" value="` + track + `">
+            <input type="hidden" name="game" value="` + game + `">
+            <input type="hidden" name="car" value="` + car + `">
+            <input type="hidden" name="time" value="` + time + `">
+        </form>`).appendTo('body').submit();
     })
 })
