@@ -11,26 +11,29 @@ if(isset($_POST["add-type"])) {
             break;
 
         case 'car':
-            $game_id = $_POST["game_id"];
-            $car_model = $_POST["car_model"];
-            $car_brand = $_POST["car_brand"];
+            $car_model = $_POST["model"];
+            $car_brand = $_POST["brand"];
             $conn = new DBConnector();
-            $conn->query("INSERT INTO car(car_model, car_brand) VALUES('$car_model', '$car_brand');");
-            $car_id = $conn->getConnection()->insert_id;
-            // Add relationship
-            $conn->query("INSERT INTO game_car(game_id, car_id) VALUES('$game_id', '$car_id');");
+            $conn->query("INSERT INTO car(model, brand) VALUES('$car_model', '$car_brand');");
             $conn->close();
             break;
             
         case 'track':
-            $game_id = $_POST["game_id"];
             $trackname = $_POST["trackname"];
 
             $conn = new DBConnector();
             $conn->query("INSERT INTO track(name) VALUES('$trackname');");
-            $track_id = $conn->getConnection()->insert_id;
-            // Add relationship
-            $conn->query("INSERT INTO track_game(game_id, track_id) VALUES('$game_id', '$track_id');");
+            $conn->close();
+            break;
+
+        case 'laptime':
+            $track = $_POST["track"];
+            $game = $_POST["game"];
+            $car = $_POST["car"];
+            $time = $_POST["time"];
+
+            $conn = new DBConnector();
+            $conn->query("INSERT INTO laptime(time, car_id, track_id, game_id) VALUES('$time', '$car', '$track', '$game');");
             $conn->close();
             break;
         
