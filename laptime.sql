@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 27. Sep 2020 um 00:13
+-- Erstellungszeit: 27. Sep 2020 um 10:25
 -- Server-Version: 10.4.11-MariaDB
 -- PHP-Version: 7.4.6
 
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `car` (
   `id` int(11) NOT NULL,
   `brand` varchar(50) NOT NULL,
-  `model` varchar(50) NOT NULL
+  `model` varchar(50) NOT NULL,
+  `transmission` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -56,7 +57,8 @@ CREATE TABLE `laptime` (
   `track_id` int(11) NOT NULL,
   `car_id` int(11) NOT NULL,
   `game_id` int(11) NOT NULL,
-  `created_on` date NOT NULL DEFAULT current_timestamp()
+  `created_on` date NOT NULL DEFAULT current_timestamp(),
+  `transmission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -68,6 +70,17 @@ CREATE TABLE `laptime` (
 CREATE TABLE `track` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `transmission`
+--
+
+CREATE TABLE `transmission` (
+  `id` int(11) NOT NULL,
+  `type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -93,12 +106,19 @@ ALTER TABLE `laptime`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_laptime_track` (`track_id`),
   ADD KEY `FK_laptime_car` (`car_id`),
-  ADD KEY `FK_laptime_game` (`game_id`);
+  ADD KEY `FK_laptime_game` (`game_id`),
+  ADD KEY `FK_laptime_transmission` (`transmission_id`);
 
 --
 -- Indizes für die Tabelle `track`
 --
 ALTER TABLE `track`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `transmission`
+--
+ALTER TABLE `transmission`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -130,6 +150,12 @@ ALTER TABLE `track`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `transmission`
+--
+ALTER TABLE `transmission`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints der exportierten Tabellen
 --
 
@@ -139,7 +165,8 @@ ALTER TABLE `track`
 ALTER TABLE `laptime`
   ADD CONSTRAINT `FK_laptime_car` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`),
   ADD CONSTRAINT `FK_laptime_game` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`),
-  ADD CONSTRAINT `FK_laptime_track` FOREIGN KEY (`track_id`) REFERENCES `track` (`id`);
+  ADD CONSTRAINT `FK_laptime_track` FOREIGN KEY (`track_id`) REFERENCES `track` (`id`),
+  ADD CONSTRAINT `FK_laptime_transmission` FOREIGN KEY (`transmission_id`) REFERENCES `transmission` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
