@@ -1,15 +1,12 @@
 .container {
-    border: 1px solid black;
+    border: 3px solid black;
+    border-right: 0;
     width: 100%;
     padding: 20px;
 }
 
-.container:first-of-type {
-    border-right: 0;
-}
-
 .container:last-of-type {
-    border-left: 0;
+    border-right: 3px solid black;
 }
 
 body {
@@ -20,7 +17,7 @@ body {
 #addLaptimeForm {
     text-align: center;
     padding: 20px;
-    border: 1px solid black;
+    border: 3px solid black;
     margin: 10px;
     margin-left: 0;
     margin-right: 0;
