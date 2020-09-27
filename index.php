@@ -25,7 +25,7 @@
                         $conn = new DBConnector();
                         $result = $conn->query("SELECT * FROM game");
                         while($row = $result->fetch_assoc()) {
-                            echo "<option ".($_POST["game_id"]==$row["id"]?"selected='selected'":'') ."value='".$row["id"]."'>".$row["name"],"</option>\n";
+                            echo "<option value='".$row["id"]."'>".$row["name"],"</option>\n";
                         }
                         $conn->close();
                     ?>
@@ -52,7 +52,7 @@
                         $conn = new DBConnector();
                         $result = $conn->query("SELECT * FROM car");
                         while($row = $result->fetch_assoc()) {
-                            echo "<option ". ($_POST["car_id"]==$row["id"]?"selected='selected'":''). " value='".$row["id"]."'>".$row["brand"]." ".$row["model"]."</option>\n";
+                            echo "<option value='".$row["id"]."'>".$row["brand"]." ".$row["model"]."</option>\n";
                         }
                         $conn->close();
                     ?>
@@ -77,7 +77,32 @@
                         $conn = new DBConnector();
                         $result = $conn->query("SELECT * FROM track");
                         while($row = $result->fetch_assoc()) {
-                            echo "<option ". ($_POST["selectedTrack"]==$row["id"]?"selected='selected'":''). " value='".$row["id"]."'>".$row["name"],"</option>\n";
+                            echo "<option value='".$row["id"]."'>".$row["name"],"</option>\n";
+                        }
+                        $conn->close();
+                    ?>
+                </select>
+            </form>
+        </div>
+        <div class="container">
+            <h2>Transmission</h2>
+            <form method="POST" action="addData.php">
+                <input type="hidden" name="add-type" value="transmission">
+                <br>
+                <br>
+                <label for="transmission">Transmission:</label>
+                <input type="text" name="transmission">
+
+                <input type="submit" value="Submit">
+            </form>
+            <form method="POST" action="index.php">
+                <select name="transmission" size="10" id="selectTransmission">
+                    <option value="-1"></option>
+                    <?php
+                        $conn = new DBConnector();
+                        $result = $conn->query("SELECT * FROM transmission");
+                        while($row = $result->fetch_assoc()) {
+                            echo "<option value='".$row["id"]."'>".$row["type"],"</option>\n";
                         }
                         $conn->close();
                     ?>
@@ -91,12 +116,13 @@
             <input type="submit" value="Submit">
     </form>
     <div id="table">
-        <table id="dataTable" class="display">
+        <table id="dataTable" class="display border">
             <thead>
                 <tr>
                     <th>Game</th>
                     <th>Car</th>
                     <th>Track</th>
+                    <th>Transmission type</th>
                     <th>Laptime</th>
                     <th>Date</th>
                 </tr>
@@ -126,6 +152,13 @@
                                 $track = $conn->query("SELECT name FROM track WHERE id='".$row["track_id"]."';");
                                 $track_row = $track->fetch_row();
                                 echo $track_row[0];
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                $trans = $conn->query("SELECT type FROM transmission WHERE id='".$row["transmission_id"]."';");
+                                $trans_row = $trans->fetch_row();
+                                echo $trans_row[0];
                                 ?>
                             </td>
                             <td>

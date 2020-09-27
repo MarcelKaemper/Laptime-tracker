@@ -15,6 +15,7 @@ $(document).ready(function() {
         let game = $("#selectGame").val();
         let car = $("#selectCar").val();
         let track = $("#selectTrack").val();
+        let transmission = $("#selectTransmission").val();
         let time = $("#inputTime").val();
 
         $(`<form action="addData.php" method="POST">
@@ -22,6 +23,7 @@ $(document).ready(function() {
             <input type="hidden" name="track" value="` + track + `">
             <input type="hidden" name="game" value="` + game + `">
             <input type="hidden" name="car" value="` + car + `">
+            <input type="hidden" name="transmission" value="` + transmission + `">
             <input type="hidden" name="time" value="` + time + `">
         </form>`).appendTo('body').submit();
     })

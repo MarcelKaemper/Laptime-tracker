@@ -26,14 +26,23 @@ if(isset($_POST["add-type"])) {
             $conn->close();
             break;
 
+        case 'transmission':
+            $transmission_type = $_POST["transmission"];
+
+            $conn = new DBConnector();
+            $conn->query("INSERT INTO transmission(type) VALUES('$transmission_type');");
+            $conn->close();
+            break;
+
         case 'laptime':
             $track = $_POST["track"];
             $game = $_POST["game"];
             $car = $_POST["car"];
+            $transmission = $_POST["transmission"];
             $time = $_POST["time"];
 
             $conn = new DBConnector();
-            $conn->query("INSERT INTO laptime(time, car_id, track_id, game_id) VALUES('$time', '$car', '$track', '$game');");
+            $conn->query("INSERT INTO laptime(time, car_id, track_id, game_id, transmission_id) VALUES('$time', '$car', '$track', '$game', '$transmission');");
             $conn->close();
             break;
         
