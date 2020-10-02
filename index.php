@@ -53,7 +53,7 @@
                         $conn = new DBConnector();
                         $result = $conn->query("SELECT * FROM car");
                         while($row = $result->fetch_assoc()) {
-                            echo "<option class='item' value='".$row["id"]."'>".$row["brand"]." ".$row["model"]."</option>\n";
+                            echo "<option value='".$row["id"]."'>".$row["brand"]." ".$row["model"]."</option>\n";
                         }
                         $conn->close();
                     ?>
