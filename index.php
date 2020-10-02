@@ -1,5 +1,6 @@
 <?php
     require_once "DBConnector.php";
+    require_once "getData.php";
 ?>
 <html>
 <head>
@@ -52,7 +53,7 @@
                         $conn = new DBConnector();
                         $result = $conn->query("SELECT * FROM car");
                         while($row = $result->fetch_assoc()) {
-                            echo "<option value='".$row["id"]."'>".$row["brand"]." ".$row["model"]."</option>\n";
+                            echo "<option class='item' value='".$row["id"]."'>".$row["brand"]." ".$row["model"]."</option>\n";
                         }
                         $conn->close();
                     ?>
@@ -136,29 +137,23 @@
                         <tr>
                             <td>
                                 <?php
-                                $game = $conn->query("SELECT name FROM game WHERE id='".$row["game_id"]."';");
-                                echo $game->fetch_row()[0];
+                                echo getRow("name", "game", $row["game_id"])[0];
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                $car = $conn->query("SELECT brand, model FROM car WHERE id='".$row["car_id"]."';");
-                                $car_row = $car->fetch_row();
+                                $car_row = getRow("brand, model", "car", $row["car_id"]);
                                 echo $car_row[0]." ".$car_row[1];
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                $track = $conn->query("SELECT name FROM track WHERE id='".$row["track_id"]."';");
-                                $track_row = $track->fetch_row();
-                                echo $track_row[0];
+                                echo getRow("name", "track", $row["track_id"])[0];
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                $trans = $conn->query("SELECT type FROM transmission WHERE id='".$row["transmission_id"]."';");
-                                $trans_row = $trans->fetch_row();
-                                echo $trans_row[0];
+                                echo getRow("type", "transmission", $row["transmission_id"])[0];
                                 ?>
                             </td>
                             <td>
