@@ -4,10 +4,15 @@ $(document).ready(function() {
         select: true,
         colReorder: true,
         searchPanes: {
-            cascadePanes: true,
-            columns: [0, 1, 2, 4]
+            cascadePanes: true
         },
-        dom: 'rtlpP'
+        columnDefs: [{
+            searchPanes: {
+                show: true
+            },
+            targets: [0, 1, 2, 3, 5]
+        }],
+        dom: 'prtlpP'
     });
 
     $("#addLaptimeForm").submit(function(event) {
