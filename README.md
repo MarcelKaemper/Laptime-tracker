@@ -1,4 +1,4 @@
-# Laptime
+# Laptime-tracker
 
 ## Goal of this project
 I often play racing games and I wanted to start tracking my laptimes accross different games and tracks.  
