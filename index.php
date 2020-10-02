@@ -14,13 +14,14 @@
         <div class="container">
             <h2>Game</h2>
             <form method="POST" action="addData.php">
-                <input type="hidden" name="add-type" value="game">
-                <label for="name">Gamename:</label>
-                <input type="text" name="name">
-                <input type="submit" value="Submit">
+                <div class="form-group">
+                    <input type="hidden" name="add-type" value="game">
+                    <input type="text" class="form-control" placeholder="Enter game name" name="name">
+                    <input type="submit" class="form-control" value="Submit">
+                </div>
             </form>
             <form method="POST" action="index.php">
-                <select size="10" name="game_id" id="selectGame">
+                <select size="15" name="game_id" id="selectGame" class="form-control">
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
@@ -36,18 +37,19 @@
         <div class="container">
             <h2>Car</h2>
             <form method="POST" action="addData.php">
-                <input type="hidden" name="add-type" value="car">
-                <br>
-                <br>
-                <label for="brand">Car brand:</label>
-                <input type="text" name="brand">
-                <label for="model">Car model:</label>
-                <input type="text" name="model">
-
-                <input type="submit" value="Submit">
+                <div class="form-group">
+                    <input type="hidden" name="add-type" value="car">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter car brand" name="brand">
+                        <input type="text" class="form-control" placeholder="Enter car model" name="model">
+                    </div>
+                    <div class="input-group">
+                    <input type="submit" class="form-control" value="Submit">
+                    </div>
+                    </div>
             </form>
             <form method="POST" action="index.php">
-                <select name="car_id" size="10" id="selectCar">
+                <select name="car_id" size="15" id="selectCar" class="form-control">
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
@@ -63,16 +65,14 @@
         <div class="container">
             <h2>Track</h2>
             <form method="POST" action="addData.php">
-                <input type="hidden" name="add-type" value="track">
-                <br>
-                <br>
-                <label for="trackname">Trackname:</label>
-                <input type="text" name="trackname">
-
-                <input type="submit" value="Submit">
+                <div class="form-group">
+                    <input type="hidden" name="add-type" value="track">
+                    <input type="text" class="form-control" placeholder="Enter track name" name="trackname">
+                    <input type="submit" class="form-control" value="Submit">
+                </div>
             </form>
             <form method="POST" action="index.php">
-                <select name="track_id" size="10" id="selectTrack">
+                <select name="track_id" size="15" id="selectTrack" class="form-control">
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
@@ -88,16 +88,14 @@
         <div class="container">
             <h2>Transmission</h2>
             <form method="POST" action="addData.php">
-                <input type="hidden" name="add-type" value="transmission">
-                <br>
-                <br>
-                <label for="transmission">Transmission:</label>
-                <input type="text" name="transmission">
-
-                <input type="submit" value="Submit">
+                <div class="form-group">
+                    <input type="hidden" name="add-type" value="transmission">
+                    <input type="text" class="form-control" placeholder="Enter transmission type" name="transmission">
+                    <input type="submit" class="form-control" value="Submit">
+                </div>
             </form>
             <form method="POST" action="index.php">
-                <select name="transmission" size="10" id="selectTransmission">
+                <select name="transmission" size="15" id="selectTransmission" class="form-control">
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
@@ -112,9 +110,10 @@
         </div>
     </div>
     <form action="addData" method="POST" id="addLaptimeForm">
-            <label for="laptime">Laptime: </label>
-            <input type="text" name="laptime" id="inputTime">
-            <input type="submit" value="Submit">
+        <div class="form-group row">
+            <input type="text" class="form-control" placeholder="Enter laptime" name="laptime" id="inputTime">
+            <input type="submit" class="form-control" value="Submit">
+        </div>
     </form>
     <div id="table">
         <table id="dataTable" class="display border">
