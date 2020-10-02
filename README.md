@@ -26,4 +26,4 @@ This Application makes use of PHP, Bootstrap, JQuery and the DataTable Plugin pl
 
 ## Userinterface
 ![Adding data](https://i.imgur.com/3zJBs4B.png)
-![Readin data](https://i.imgur.com/DVwFutl.png)
+![Reading data](https://i.imgur.com/DVwFutl.png)
