@@ -17,6 +17,9 @@ This Application makes use of PHP, Bootstrap, JQuery and the DataTable Plugin pl
 - Easily sorting and ordering the different datasets thanks to DataTables and Searchpanes  
 - Creation date of the dataset, allowing you to easily track your personal lap improvement over time
 
+## Future of this project
+- [ ] Automated data analysis+visualization
+
 
 ## Userinterface
 ![Adding data](https://i.imgur.com/3zJBs4B.png)
