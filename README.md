@@ -18,6 +18,9 @@ This Application makes use of PHP, Bootstrap, JQuery and the DataTable Plugin pl
 - Creation date of the dataset, allowing you to easily track your personal lap improvement over time
 
 ## Future of this project
+- [ ] Validate user input data
+- [ ] Regex for input laptime
+- [ ] Function to order table by laptime (fix bug for laptime below 1 minute)
 - [ ] Automated data analysis+visualization
 
 
