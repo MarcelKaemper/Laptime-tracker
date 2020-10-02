@@ -12,8 +12,25 @@ $(document).ready(function() {
             },
             targets: [0, 1, 2, 3, 5]
         }],
-        dom: 'prtlpP'
+        dom: 'rtpP'
     });
+
+
+    // Dynamic size for selects
+
+    // Get select with most options
+    let maxSize = 15;
+    $(".container select").each(function() {
+            let size = $(this).children().length;
+            if (size >= maxSize) {
+                maxSize = size;
+            }
+            $(this).attr("size", size);
+        })
+        // Set size to all selects
+    $(".container select").each(function() {
+        $(this).attr("size", maxSize);
+    })
 
     $("#addLaptimeForm").submit(function(event) {
         event.preventDefault();
