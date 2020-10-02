@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 27. Sep 2020 um 10:25
+-- Erstellungszeit: 02. Okt 2020 um 23:32
 -- Server-Version: 10.4.11-MariaDB
 -- PHP-Version: 7.4.6
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `laptime`
 --
+CREATE DATABASE IF NOT EXISTS `laptime` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `laptime`;
 
 -- --------------------------------------------------------
 
