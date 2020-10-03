@@ -7,9 +7,9 @@ Many people use to store the data in spreadsheets, and so did I, but I got sick 
 This Application makes use of PHP, Bootstrap, JQuery and the DataTable Plugin plus the Searchpanes extension.
 
 ## How to install
-- `Download the laptime.sql file and import it to your MySQL/MariaDB`  
-- `Change the DB information in the DBConnector.php script`  
-- `Put the PHP Scripts on a server of your choice`  
+- Download the `laptime.sql` file and import it to your `MySQL/MariaDB` Database   
+- Change the DB information in the `DBConnector.php` script  
+- Put the PHP Scripts on a server of your choice  
 
 ## Features
 - Adding different games, cars, tracks and even transmission types  
