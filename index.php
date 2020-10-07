@@ -25,7 +25,7 @@
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
-                        $result = $conn->query("SELECT * FROM game");
+                        $result = $conn->query("SELECT * FROM game ORDER BY name");
                         while($row = $result->fetch_assoc()) {
                             echo "<option value='".$row["id"]."'>".$row["name"],"</option>\n";
                         }
@@ -44,16 +44,16 @@
                         <input type="text" class="form-control" placeholder="Enter car model" name="model">
                     </div>
                     <div class="input-group">
-                    <input type="submit" class="form-control" value="Submit">
+                        <input type="submit" class="form-control" value="Submit">
                     </div>
-                    </div>
+                </div>
             </form>
             <form method="POST" action="index.php">
                 <select name="car_id" size="15" id="selectCar" class="form-control">
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
-                        $result = $conn->query("SELECT * FROM car");
+                        $result = $conn->query("SELECT * FROM car ORDER BY brand");
                         while($row = $result->fetch_assoc()) {
                             echo "<option value='".$row["id"]."'>".$row["brand"]." ".$row["model"]."</option>\n";
                         }
@@ -76,7 +76,7 @@
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
-                        $result = $conn->query("SELECT * FROM track");
+                        $result = $conn->query("SELECT * FROM track ORDER BY name");
                         while($row = $result->fetch_assoc()) {
                             echo "<option value='".$row["id"]."'>".$row["name"],"</option>\n";
                         }
@@ -99,7 +99,7 @@
                     <option value="-1"></option>
                     <?php
                         $conn = new DBConnector();
-                        $result = $conn->query("SELECT * FROM transmission");
+                        $result = $conn->query("SELECT * FROM transmission ORDER BY type");
                         while($row = $result->fetch_assoc()) {
                             echo "<option value='".$row["id"]."'>".$row["type"],"</option>\n";
                         }
@@ -173,9 +173,13 @@
             </tbody>
         </table>
     </div>
+    <form>
+        <input type="button" class="form-control" value="Analyze and Visualize">
+    </form>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/cr-1.5.2/sp-1.2.0/sl-1.3.1/datatables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
