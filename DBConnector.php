@@ -1,13 +1,11 @@
 <?php
+require_once "credentials.php";
 class DBConnector {
-    private $host = "localhost";
-    private $username = "laptime";
-    private $password = "laptime";
-    private $dbname = "laptime";
+
     private $conn;
 
     public function __construct() {
-        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+        $this->conn = new mysqli(HOST, USERNAME, PASSWORD, DBNAME);
     }
 
     public function query($sql) {
