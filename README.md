@@ -2,7 +2,7 @@
 
 ## Goal of this project
 I often play racing games and I wanted to start tracking my laptimes accross different games and tracks.  
-Many people use to store the data in spreadsheets, and so did I, but I got sick of it and created this application to make life easier.  
+I used to store the data in spreadsheets,  but I got sick of it and created this application to make life easier.  
 
 This Application makes use of PHP, Bootstrap, JQuery and the DataTable Plugin plus the Searchpanes extension.
 
